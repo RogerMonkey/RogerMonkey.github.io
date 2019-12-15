@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[双系统mbr分区grub引导启动问题解决指北]]></title>
+    <url>%2F2017%2F03%2F25%2F%E5%8F%8C%E7%B3%BB%E7%BB%9Fmbr%E5%88%86%E5%8C%BAgrub%E5%BC%95%E5%AF%BC%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%8C%87%E5%8C%97%2F</url>
+    <content type="text"><![CDATA[问题相信有很多人和我一样，喜欢用linux敲代码和工作，却抵挡不了windows的诱（you）惑（xi）而选择了双系统（买mac的壕们请无视）。那么问题就来了，很多时候由于安装不当，启动时只能找到一个系统，所以在此列举一些应对措施。 安装linux启动不了windows大部分linux启动文件都使用grub或grub2。如果安装双系统后启动电脑启动不了windows，可以进入linux修复引导。进入linux，使用如下命令即可更新grub自动找回启动项：sudo update-grub2，之后重启电脑即可。 双系统误操作黑屏找不到分区PE启动 下载老毛桃或者大白菜 u盘启动（F12 或其他）进入dg分区管理 修复主分区mbr，即可重新引导 咳咳，一般没用 linux liveCD启动 下载liveCD linux从u盘启动进入系统 sudo -i以下命令都要在root权限下执行 fdisk -l查看硬盘分区，找到/和/boot分区号（如/dev/sda1 /dev/sda2) mount /dev/sda1 /mnt mount /dev/sda2/ /mnt/boot挂载这两个分区 在硬盘重建mbr分区表，执行以下命令 gurb2-install --root-directory=/dev/sda PS.这里路径是硬盘号，不是分区号 重启～ grub rescuewin+linux双系统下若进行重装linux，修改硬盘分区等操作时可能会出现启动电脑黑屏，提示无法找到分区，此时会进入类似shell的grub rescue界面。这个模式命令只有ls,set,insmod,root,prefix,normal等可用。如果linux系统还在，那么还有救，步骤如下: ls查看硬盘信息，如(h0,msdos1)既为一个分区 ls (hd0,msdos1)/boot/grub/或ls (hd0,msdos1)/grub/找寻存放grub的boot分区 set root=(hd0,msdos1)设置该分区为root set prefix=(hd0,msdos1)/boot/grub设置启动项 insmode normal进入grub菜单，如果成功，即可进入linux系统 照第一节内容更新grub，即可解决问题 总结这里只说到了MBR分区下的启动问题，当然GPT分区启动也可能会出现问题，总之安装双系统坑很多。以后也许可以抽空写一下分区表和启动的区别，当然得有空。希望实验顺利～]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Fedora24 解决搜狗拼音输入法不能用问题]]></title>
+    <url>%2F2017%2F03%2F22%2FFedora24-%E8%A7%A3%E5%86%B3%E6%90%9C%E7%8B%97%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%8D%E8%83%BD%E7%94%A8%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[自从用了Fedora， 各种问题层出不穷，可能是我的水平还不够吧，革命继续～ 问题这回碰到的问题是，搜狗拼音可以加载，但是输入时只出一个小框，不能打出汉字。查了很多原因无果，最后在搜狗社区找到了解决方案。 解决方案原链接见这里删除用户目录下./config的三个文件夹即可。123SogouPYSogouPY.userssogou-qimpanel 尾声虽然解决了问题，但是还是没找到问题具体出在哪里，可能是配置文件问题，也可能是F24更新出现的依赖库不兼容问题。还有一个问题就是输入法经常会当掉，等论文忙完了要好好研究一下了。]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Fedora</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Effective Java: 构造器相关]]></title>
+    <url>%2F2017%2F01%2F18%2FEffective-Java-%E6%9E%84%E9%80%A0%E5%99%A8%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[整理自我的Wiz笔记 用私有构造器或者枚举类型强化Singleton属性Singleton仅仅被实例化一次的类，通常被用来代表那些本质上唯一的系统组件，比如窗口管理器或者文件系统。java1.5之后，有三种方式实现singleton。 Singleton with public final field12345public class Elvis &#123; public static final Elvis INSTANCE = new Elvis(); private Elvis() &#123;...&#125; public void leaveTheBuilding() &#123;...&#125;&#125; 调用一次private 构造器，实例化公有的静态final域Elvis.INSTANCE。特权客户端可以借助AccessibleObject.setAccessible，通过反射机制调用私有构造器！ Singleton with static factory1234567public class Elvis &#123; private static final Elvis INSTANCE = new Elvis(); private Elvis() &#123;...&#125; public static Elvis getInstance() &#123;return INSTANCE;&#125; public void leaveTheBuilding() &#123;...&#125;&#125; 该方法的优势在于，提供了灵活性。 Enum Singleton1234public enum Elvis &#123; INSTANCE; public void leaveTheBuilding() &#123;...&#125;&#125; 该方法更加简洁，并提供了序列化机制。单元素的枚举类型已经成为实现Singleton的最佳方法！ 总结根据面神的经验,在公司中为了可读性和其他原因仍然会选择使用静态类来实现，不会选择枚举类型。 遇到多个构造器参数时要考虑用构建器重叠构造器123456789101112131415161718192021222324252627282930313233public class NutritionFacts &#123; private final int servingSize; private final int servings; private final int calories; private final int fat; private final int sodium; private final int carbohydrate; public NutritionFacts(int servingSize, int servings)&#123; this(servingSize, servings, 0); &#125; public NutritionFacts(int servingSize, int servings, int calories)&#123; this(servingSize, servings, calories, 0); &#125; public NutritionFacts(int servingSize, int servings, int calories, int fat)&#123; this(servingSize, servings, calories, fat, 0); &#125; public NutritionFacts(int servingSize, int servings, int calories, int fat, int sodium)&#123; this(servingSize, servings, calories, fat, sodium, 0); &#125; public NutritionFacts(int servingSize, int servings, int calories, int fat, int sodium, int carbohydrate)&#123; this.servingSize = servingSize; this.servings = servings; this.calories = calories; this.fat = fat; this.sodium = sodium; this.carbohydrate = carbohydrate; &#125;&#125; 缺点当有许多参数的适合，客户端代码会很难编写，并且仍然较难以阅读。 javaBeans1234567891011121314151617public class NutritionFacts &#123; private int servingSize = -1; private int servings = -1; private int calories = 0; private int fat = 0; private int sodium = 0; private int carbohydrate = 0; public NutritionFacts() &#123;&#125; public void setServingSize(int val) &#123; servingSize = val;&#125; public void setServings(int val) &#123; servingSize = val;&#125; public void setCalories(int val) &#123; servingSize = val;&#125; public void setFat(int val) &#123; servingSize = val;&#125; public void setSodium(int val) &#123; servingSize = val;&#125; public void setCarbohydrate(int val) &#123; servingSize = val;&#125;&#125; 缺点构造过程中可能处于不一致的状态，也就是说线程不安全。 builder Pattern (构建器)1234567891011121314151617181920212223242526272829303132333435363738394041public class NutritionFacts &#123; private final int servingSize; private final int servings; private final int calories; private final int fat; private final int sodium; private final int carbohydrate; public static class Builder &#123; private final int servingSize; private final int servings; private int calories = 0; private int fat = 0; private int carbohydrate = 0; private int sodium = 0; public Builder(int servingSize, int servings) &#123; this.servingSize = servingSize; this.servings = servings; &#125; public Builder calories(int val)&#123; calories = val; return this;&#125; public Builder fat(int val)&#123; fat = val; return this;&#125; public Builder sodium(int val)&#123; sodium = val; return this;&#125; public Builder carbohydrate(int val)&#123; carbohydrate = val; return this;&#125; public NutritionFacts build() &#123; return new NutritionFacts3(this); &#125; &#125; private NutritionFacts(Builder builder) &#123; servingSize = builder.servingSize; servings = builder.servings; calories = builder.calories; fat = builder.fat; sodium = builder.sodium; carbohydrate = builder.carbohydrate; &#125;&#125; 优雅的构建！！！！12NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8) .calories(100).sodium(35).carbohydrate(27).build(); 总结静态工厂和构造器有一个局限性，都不能很好的扩展到大量可选参数。一共有三个方法可以用于构造有大量可选构造函数的类的实例。如果类的构造器或者静态工厂中具有多个参数，Builder模式就是一种不错的选择。但是在某些十分注重性能的情况下，可能就会成为问题 通过私有构造器强化不可实例化的能力有时候想只写一个包含静态方法的类，又不想实例化，通过将类做成抽象类来强制该类不可被实例化是行不通的。这个时候,让它包含私有构造器即可!12345public class UtilityClass &#123; private UtilityClass()&#123; throw new AssertionError(); &#125;&#125; 未完待续…]]></content>
+      <categories>
+        <category>读书笔记</category>
+        <category>Effective Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python 生成器小插曲]]></title>
+    <url>%2F2017%2F01%2F17%2Fpython-%E7%94%9F%E6%88%90%E5%99%A8%E5%B0%8F%E6%8F%92%E6%9B%B2%2F</url>
+    <content type="text"><![CDATA[问题对分词后的words迭代两次保存文件，但是结果程序只执行第一次的迭代，如下代码： 12345words = pseg.cut(i)for word,flag in list(words): test.write('%s %s\n' % (word, flag))for word, flag in list(words): train.write('%s %s I-P\n' % (word, flag)) 逐步调试后发现，第二次for循环words已经为空，没有重新遍历。结巴cut生成的是generator而不是list和字典，通过for循环generator只能遍历一次！ 生成器 generator优点generator是一种边计算，边循环机制的迭代器，这样可以减少大量数据下list占用的大量内存。也就是说，generator在需要时返回中间值，保存当前状态，等待下一次返回要求。 关键字yield，在程序调用generator时，函数执行到yield时会被挂起，等待下一次调用。 PEP255: A python generator is a kind of python iterator, but of an especially powerful kind. 使用方法 括号直接生成 1g = (x * x for x in range(10)) 构造函数，并且把其中print改为yield，这样该函数返回的就是一个生成器 12345def range(cnt): n = 0 while n &lt; cnt: yield n n = n + 1 其他方法 next()或者for循环遍历generator，当next ()调用到最后一次之后，会抛出异常。 send()用来发送信息，这里会将阻塞住的yield的值换成sent()发送的值。 close()用来关闭generator 总结想让结巴生成list请用jieba.lcut()!!!当然generator还有更有趣的用法,待日后发掘更新~]]></content>
+      <categories>
+        <category>python</category>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+</search>
