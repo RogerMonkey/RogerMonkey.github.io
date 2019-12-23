@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[model简单指北.md]]></title>
+    <title><![CDATA[Topic Model简单指北]]></title>
     <url>%2F2019%2F12%2F15%2FTopicModel%E7%AE%80%E5%8D%95%E6%8C%87%E5%8C%97%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[model简单指北.md]]></title>
-    <url>%2F2019%2F12%2F15%2Fmodel%E7%AE%80%E5%8D%95%E6%8C%87%E5%8C%97-md%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Topic Model 简单指北0 前言说起来好久没有回顾topic model了，刚好借此机会重温一下。这里推荐久远之前看过的一个系列，想看戳我 。 topic model本质是计算词与文档相似度的一种方法，在序列模型未普及的时候以至于现在，仍然是一种简单而高效的方法，但由于本人并不是topicmodel出身，故本篇也仅仅基于个人理解，仅做入门参考～ 若有问题，请联系本人互怼。 1 主题模型之前主题模型在搞啥？ 文档中的topic结构，文档和topic的相似度，doclist和topic的相似度。 词-词、词-文档、文档-词的相似度。 2 TFIDF 我们要优化这个井盖。 ​ ——安神 那么首先说到关键词和相似度，就逃不开TFIDF。 TFIDF（Term Frequency/Inverse Document Frequency）简单讲就是一个词在一个语料库单个文档的重要程度。 其中TF指词频：$$tf_{i,j} = \frac{n_{i,j}}{\sum_k n_{k,j}}$$其中$n_{i,j}$ 表示词i在文档j中出现的次数，normalization是为了防止文档长度对词出现概率的影响（越长则词越容易出现） IDF则指该词在多少文档中出现过：$$ $$]]></content>
+      <tags>
+        <tag>NLP,主题模型</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[双系统mbr分区grub引导启动问题解决指北]]></title>
