@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ouyang.xin/"/>
-  <updated>2019-12-23T16:26:45.446Z</updated>
+  <updated>2019-12-23T16:31:12.723Z</updated>
   <id>http://www.ouyang.xin/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.ouyang.xin/2019/12/15/TopicModel%E7%AE%80%E5%8D%95%E6%8C%87%E5%8C%97/"/>
     <id>http://www.ouyang.xin/2019/12/15/TopicModel简单指北/</id>
     <published>2019-12-15T15:44:48.000Z</published>
-    <updated>2019-12-23T16:26:45.446Z</updated>
+    <updated>2019-12-23T16:31:12.723Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Topic-Model-简单指北"><a href="#Topic-Model-简单指北" class="headerlink" title="Topic Model 简单指北"></a>Topic Model 简单指北</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p>说起来好久没有回顾topic model了，刚好借此机会重温一下。这里推荐久远之前看过的一个系列，<a href="http://www.52nlp.cn/category/topic-model" target="_blank" rel="noopener">想看戳我</a> 。</p><p>topic model本质是计算词与文档相似度的一种方法，在序列模型未普及的时候以至于现在，仍然是一种简单而高效的方法，但由于本人并不是topicmodel出身，故本篇也仅仅基于个人理解，仅做入门参考～</p><p>若有问题，请联系本人互怼。</p><h2 id="1-主题模型之前"><a href="#1-主题模型之前" class="headerlink" title="1 主题模型之前"></a>1 主题模型之前</h2><p>主题模型在搞啥？</p><p>文档中的topic结构，文档和topic的相似度，doclist和topic的相似度。</p><p>词-词、词-文档、文档-词的相似度。</p><h2 id="2-TFIDF"><a href="#2-TFIDF" class="headerlink" title="2 TFIDF"></a>2 TFIDF</h2><blockquote><p>我们要优化这个井盖。</p><p>​                 ——安神</p></blockquote><p>那么首先说到关键词和相似度，就逃不开TFIDF。</p><p>TFIDF（Term Frequency/Inverse Document Frequency）简单讲就是一个词在一个语料库单个文档的重要程度。</p><p>其中TF指词频：<br>$$<br>tf_{i,j} = \frac{n_{i,j}}{\sum_k n_{k,j}}<br>$$<br>其中$n_{i,j}$ 表示词i在文档j中出现的次数，normalization是为了防止文档长度对词出现概率的影响（越长则词越容易出现）</p><p>IDF则指该词在多少文档中出现过：<br>$$</p><p>$$</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Topic-Model-简单指北"><a href="#Topic-Model-简单指北" class="headerlink" title="Topic Model 简单指北"></a>Topic Model 简单指北</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p>说起来好久没有回顾topic model了，刚好借此机会重温一下。这里推荐久远之前看过的一个系列，<a href="http://www.52nlp.cn/category/topic-model" target="_blank" rel="noopener">想看戳我</a> 。</p><p>topic model本质是计算词与文档相似度的一种方法，在序列模型未普及的时候以至于现在，仍然是一种简单而高效的方法，但由于本人并不是topicmodel出身，故本篇也仅仅基于个人理解，仅做入门参考～</p><p>若有问题，请联系本人互怼。</p><h2 id="1-主题模型之前"><a href="#1-主题模型之前" class="headerlink" title="1 主题模型之前"></a>1 主题模型之前</h2><p>主题模型在搞啥？</p><p>文档中的topic结构，文档和topic的相似度，doclist和topic的相似度。</p><p>词-词、词-文档、文档-词的相似度。</p><h2 id="2-TFIDF"><a href="#2-TFIDF" class="headerlink" title="2 TFIDF"></a>2 TFIDF</h2><blockquote><p>我们要优化这个井盖。</p><p>​                 ——安神</p></blockquote><p>那么首先说到关键词和相似度，就逃不开TFIDF。</p><p>TFIDF（Term Frequency/Inverse Document Frequency）简单讲就是一个词在一个语料库单个文档的重要程度。</p><p>其中TF指词频：<br>$$<br>tf_{i,j} = \frac{n_{i,j}}{\sum_k n_{k,j}}<br>$$<br>其中$n_{i,j}$ 表示词i在文档j中出现的次数，normalization是为了防止文档长度对词出现概率的影响（越长则词越容易出现）  </p><p>IDF则指该词在多少文档中出现过：<br>$$<br>idf_i = log\frac{|D|}{|d, t_i \in d_j|}<br>$$  </p>]]></content>
     
     <summary type="html">
     
