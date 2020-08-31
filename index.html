@@ -362,6 +362,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.ouyang.xin/2020/08/31/有趣的算法题其一（位运算）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳欣">
+      <meta itemprop="description" content="一只等待进化程序猿的猴子。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Monkey Café">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/31/有趣的算法题其一（位运算）/" itemprop="url">
+                  有趣的算法题一：位运算
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-08-31 23:41:49" itemprop="dateCreated datePublished" datetime="2020-08-31T23:41:49+08:00">2020-08-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-09-01 00:06:15" itemprop="dateModified" datetime="2020-09-01T00:06:15+08:00">2020-09-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法-基础/" itemprop="url" rel="index"><span itemprop="name">算法,基础</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>我本科可能学的是球类专业（气球和篮球）。       —— Roger</p>
+</blockquote>
+<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>虽然曾经也有过面试别人的经历，但是作为正式的面试官却是头一回。面试了很多同学下来发现，大家在基础算法能力和数据结构上都还是挺不足的，可能和我一样都学了个篮球专业吧哈哈。俗话说以人为镜，可以正衣冠，在这方面我现在也有严重的欠缺。故借此机会，从新刷刷题，找找感觉，同时整理下自己的思路。最后，又开始记博客了，撒花～</p>
+<h1 id="什么是位运算"><a href="#什么是位运算" class="headerlink" title="什么是位运算"></a>什么是位运算</h1><p>位运算当然就是按位运算啦。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.ouyang.xin/2019/12/15/TopicModel简单指北/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -425,7 +599,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-12-24 00:31:12" itemprop="dateModified" datetime="2019-12-24T00:31:12+08:00">2019-12-24</time>
+                <time title="修改时间：2019-12-25 20:53:09" itemprop="dateModified" datetime="2019-12-25T20:53:09+08:00">2019-12-25</time>
               
             
           </span>
@@ -472,8 +646,24 @@
 </blockquote>
 <p>那么首先说到关键词和相似度，就逃不开TFIDF。</p>
 <p>TFIDF（Term Frequency/Inverse Document Frequency）简单讲就是一个词在一个语料库单个文档的重要程度。</p>
-<p>其中TF指词频：<br>$$<br>tf_{i,j} = \frac{n_{i,j}}{\sum_k n_{k,j}}<br>$$<br>其中$n_{i,j}$ 表示词i在文档j中出现的次数，normalization是为了防止文档长度对词出现概率的影响（越长则词越容易出现）  </p>
-<p>IDF则指该词在多少文档中出现过：<br>$$<br>idf_i = log\frac{|D|}{|d, t_i \in d_j|}<br>$$  </p>
+<p>其中TF指词频：<br>$$<br>tf_{i,j} = \frac{n_{i,j}}{\sum_k n_{k,j}}<br>$$<br>其中$n_{i,j}$ 表示词i在文档j中出现的次数，normalization是为了防止文档长度对词出现概率的影响（越长则词越容易出现）。  </p>
+<p>光考虑词频，是不是少了点什么？常用词的词频总是很高，它们能作为关键词么？</p>
+<p>所以IDF出现了，它指在多少文档中出现过：<br>$$<br>idf_i = log\frac{|D|}{|d, t_i \in d_j|}<br>$$</p>
+<p>然后乘一乘，单车变摩托。直观而看，在一个文档中的某个词，如果在该文档出现的越多且其他文档出现的越少，它就更能作为该文档的一个关键词表达。</p>
+<p>抛个问题，TFIDF选择的是特征的权重还是区分度？</p>
+<blockquote>
+<p> 人的指纹太复杂，包含太多的位置和几何形状，要完全重现一个人的指纹，存储和计算都是大麻烦。因此第一步总是一个特征选择的问题，我们把全人类的指纹都统计一下，看看哪几个位置能够最好的区分不同的人。显然不同的位置效果很不一样，在有的位置上，我的指纹是是什么形状，其他人也大都是这个形状，这个位置就不具有区分度，或者说不具有表征性，或者说，对分类问题来说，它的重要程度低。这样的位置我们就倾向于在识别的时候根本不看它，不考虑它。</p>
+</blockquote>
+<h2 id="3-矩阵分解"><a href="#3-矩阵分解" class="headerlink" title="3 矩阵分解"></a>3 矩阵分解</h2><blockquote>
+<p>万物皆可矩阵，万物皆可分解。</p>
+<p>​                                   ——猴子先生</p>
+</blockquote>
+<p>TFIDF顺利抽取出了主题词，那咱们的主题呢？讲道理，主题应该是一系列词分布，直接整主题词还是太大了（参考中文常用字6000），那么咋办，矩阵分解呗。<br>$$<br>p(Word|Doc) = \sum_{topic}p(Word|topic)*p(topic|Doc)<br>$$</p>
+<h3 id="3-1-LSA（也叫LSI）"><a href="#3-1-LSA（也叫LSI）" class="headerlink" title="3.1 LSA（也叫LSI）"></a>3.1 LSA（也叫LSI）</h3><p>文档和词袋，天生就是一个矩阵（文档用id表示），这个时候不分解一下怎么对得起自己。</p>
+<p>LSA（Latent Semantic Analysis）就是早期的主题模型，但是矩阵过大直接分解等于送头，所以LSA的一个版本考虑了SVD（Singular Value Decomposition 奇异值分解）。</p>
+<h4 id="3-1-1-撕一发SVD"><a href="#3-1-1-撕一发SVD" class="headerlink" title="3.1.1 撕一发SVD"></a>3.1.1 撕一发SVD</h4><p><img src="/Users/ouyangxin02/Library/Application Support/typora-user-images/image-20191225002805830.png" alt="image-20191225002805830"></p>
+<p><img src="/Users/ouyangxin02/Library/Application Support/typora-user-images/image-20191225003055933.png" alt="image-20191225003055933"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>等我补啊。。。</p>
 
           
         
@@ -1290,7 +1480,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1317,7 +1507,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1340,7 +1532,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1387,7 +1581,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright"> &copy; 2017 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright"> &copy; 2017 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1890,6 +2084,8 @@
 
   
   
+    
+      
     
       
     
